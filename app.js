@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var session = require('express-session');
 
 // create route objects
 var indexRouter = require('./routes/index');
@@ -19,9 +20,17 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // For login part
-// //parse requests
+// parse requests
 app.use(bodyParser.urlencoded({ extended: true }));
 // End login part
+
+// Sessions
+app.use(session({
+    secret: '2C44-4D44-WppQ38S',
+    resave: true,
+    saveUninitialized: true
+}));
+// End Sessions
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -45,7 +54,6 @@ app.use('/advice', adviceRouter);
 // app.use('/login', loginRouter);
 app.use('/', loginRouter);
 app.use('/users', usersRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

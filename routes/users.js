@@ -11,9 +11,11 @@ router.get('/', auth.auth, function(req, res, next) {
 /* Login user */
 router.post('/login', function (req, res, next) {
     const username = req.body.username;
-    let loginResult = login(username, req.body.password);
+    let loginResult = login.login(username, req.body.password);
     if (loginResult) {
-        // res.render('users', {username: username});
+        console.log(`Login for ${username}`)
+        req.session.user = username;
+        req.session.admin = true;
         res.render('index', {pagetitle: username});
     }
     else {
