@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var bodyParser = require('body-parser');
 
 // create route objects
 var indexRouter = require('./routes/index');
@@ -11,9 +12,16 @@ var contactRouter = require('./routes/contact');
 var tipsRouter = require('./routes/tips');
 var recipesRouter = require('./routes/recipes');
 var adviceRouter = require('./routes/advice');
+var loginRouter = require('./routes/login');
+var usersRouter = require('./routes/users');
 
 // the app object
 var app = express();
+
+// For login part
+// //parse requests
+app.use(bodyParser.urlencoded({ extended: true }));
+// End login part
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,12 +35,17 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // tell the app to use these routes
-app.use('/', indexRouter);
+// app.use('/', indexRouter);
+app.use('/index', indexRouter);
 app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/tips', tipsRouter);
 app.use('/recipes', recipesRouter);
 app.use('/advice', adviceRouter);
+// app.use('/login', loginRouter);
+app.use('/', loginRouter);
+app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
