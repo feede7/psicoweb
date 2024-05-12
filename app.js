@@ -12,7 +12,7 @@ var aboutRouter = require('./routes/about');
 var contactRouter = require('./routes/contact');
 var tipsRouter = require('./routes/tips');
 var recipesRouter = require('./routes/recipes');
-var adviceRouter = require('./routes/advice');
+var logoutRouter = require('./routes/logout');
 var loginRouter = require('./routes/login');
 var usersRouter = require('./routes/users');
 
@@ -50,7 +50,7 @@ app.use('/about', aboutRouter);
 app.use('/contact', contactRouter);
 app.use('/tips', tipsRouter);
 app.use('/recipes', recipesRouter);
-app.use('/advice', adviceRouter);
+app.use('/logout', logoutRouter);
 // app.use('/login', loginRouter);
 app.use('/', loginRouter);
 app.use('/users', usersRouter);

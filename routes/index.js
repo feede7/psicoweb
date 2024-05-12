@@ -4,7 +4,7 @@ const auth = require('./auth')
 
 /* GET home page. */
 router.get('/', auth.auth, function(req, res, next) {
-  res.render('index', { pagetitle: 'Our Farm StanD' });
+  res.render('index', { pagetitle: req.session.user });
 });
 
 module.exports = router;

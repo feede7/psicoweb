@@ -11,14 +11,14 @@ html
       section#menuitems
         .menubutton
           h1.menubutton(onclick="menuToggle('hide')") &#9776;
-        a(href="/")
+        a(href="/index")
           h3.menuhead #{pagetitle}
         a(href="/tips")
           h3.sectrule Tips for living well
         a(href="/recipes")
           h3 Recipes
-        a(href="/advice")
-          h3 Homesteading advice
+        a(href="/logout")
+          h3 Logout
         a(href="/about")
           h3.sectrule About Us
         a(href="/contact")
@@ -31,8 +31,8 @@ html
         h1.menubutton(onclick="menuToggle('show')") &#9776;
         h1.placeholder &#9776;
         h2.navitem
-          a(href="/about")
-            .clickable-area About Us
+          a(href="/logout")
+            .clickable-area Logout
         h2.navitem
           a(href="/contact")
             .clickable-area Contact Us
@@ -52,16 +52,18 @@ html
         h3 Our friends
         section#partners.tall
           .partnerlink
-            a(href="/")
+            a(href="/index")
               .clickable-area Green Valley Greens
           .partnerlink
-            a(href="/")
+            a(href="/index")
               .clickable-area Turkey Hill Farm
           .partnerlink
-            a(href="/")
+            a(href="/index")
               .clickable-area Burt's Maple Syrup
           .partnerlink
-            a(href="/")
+            a(href="/index")
               .clickable-area Only Organic Seeds
       #footer
-        p Copyright &copy; 2020 Alice &amp; Bob's Farm Stand
+        p Copyright &copy; 2024
+          a(href="https://agoweb.com.ar/")  Agoweb &amp;
+          a(href="https://expressjs.com/")  Express
